@@ -1,1 +1,2 @@
-# sem2_adbms
+# Semester 2 - ADBMS Lab
+
