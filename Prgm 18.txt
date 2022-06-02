@@ -1,99 +1,18 @@
 
-> use movie
-switched to db movie
 
-
-> db.createCollection("MovieDetails")
-
-> db.MovieDetails.insert({title:"KGF 2",writer:"Prashanth Neel",year:2022,actor:"Yash"})
-
-> db.MovieDetails.insert({title:"Beast",writer:"Nelson",year:2022,actor:"Vijay"})
-
-> db.MovieDetails.insert({title:"Tenet",writer:"Christopher Nolan",year:2020,actor:"John David"})
-
-> db.MovieDetails.insert({title:"KGF 1",writer:"Prashanth Neel",year:2019,actor:"Yash"})
-
-> db.MovieDetails.insert({title:"12th Man",writer:"K R Krishna Kumar",year:2022,actor:"Mohanlal"})
-
-> db.MovieDetails.insert({title:"Harry Potter",writer:"J K Rowling",year:2002,actor:"Daniel Radcliff"})
-
-> db.MovieDetails.insert({title:"Prestige",writer:"Christopher Nolan",year:2006,actor:"Christian Bale"})
-
-> db.MovieDetails.insert({title:"Forgotten",writer:"Jang Hang-jun",year:2017,actor:"Kang Ha-neul"})
-
-> db.MovieDetails.insert({title:"Bad Genius",writer:"Tanida",year:2017,actor:"Chutimon Chengcharo"})
-
-> db.MovieDetails.insert({title:"RRR",writer:"S S Rajamouli",year:2022,actor:"Ramcharan"})
-
-
-> db.MovieDetails.find().pretty()
-	{
-			"_id" : ObjectId("628e007771a65ae2f230cbf7"),
-			"title" : "KGF 1",
-			"writer" : "Prashanth Neel",
-			"year" : 2019,
-			"actor" : "Yash"
-	}
-	{
-			"_id" : ObjectId("628e008871a65ae2f230cbf8"),
-			"title" : "Tenet",
-			"writer" : "Christopher Nolan",
-			"year" : 2020,
-			"actor" : "John David"
-	}
-	{
-			"_id" : ObjectId("628e009071a65ae2f230cbf9"),
-			"title" : "Beast",
-			"writer" : "Nelson",
-			"year" : 2022,
-			"actor" : "Vijay"
-	}
-	{
-			"_id" : ObjectId("628e009971a65ae2f230cbfa"),
-			"title" : "KGF 2",
-			"writer" : "Prashanth Neel",
-			"year" : 2022,
-			"actor" : "Yash"
-	}
-	{
-			"_id" : ObjectId("628e00aa71a65ae2f230cbfb"),
-			"title" : "12th Man",
-			"writer" : "K R Krishna Kumar",
-			"year" : 2022,
-			"actor" : "Mohanlal"
-	}
-	{
-			"_id" : ObjectId("628e00b271a65ae2f230cbfc"),
-			"title" : "Prestige",
-			"writer" : "Christopher Nolan",
-			"year" : 2006,
-			"actor" : "Christian Bale"
-	}
-	{
-			"_id" : ObjectId("628e00be71a65ae2f230cbfd"),
-			"title" : "Harry Potter",
-			"writer" : "J K Rowling",
-			"year" : 2002,
-			"actor" : "Daniel Radcliff"
-	}
-	{
-			"_id" : ObjectId("628e00cb71a65ae2f230cbfe"),
-			"title" : "Forgotten",
-			"writer" : "Jang Hang-jun",
-			"year" : 2017,
-			"actor" : "Kang Ha-neul"
-	}
-	{
-			"_id" : ObjectId("628e00d371a65ae2f230cbff"),
-			"title" : "Bad Genius",
-			"writer" : "Tanida",
-			"year" : 2017,
-			"actor" : "Chutimon Chengcharo"
-	}
-	{
-			"_id" : ObjectId("628e00db71a65ae2f230cc00"),
-			"title" : "RRR",
-			"writer" : "S S Rajamouli",
-			"year" : 2022,
-			"actor" : "Ramcharan"
-	}
+DECLARE
+ c_id customer.id%type;
+ c_name customer.name%type;
+ c_addr customer.address%type;
+ CURSOR c_customer is
+ SELECT id, name, address FROM customer;
+BEGIN
+ OPEN c_customer;
+ LOOP
+ FETCH c_customer into c_id, c_name, c_addr;
+ EXIT WHEN c_customer%notfound;
+ dbms_output.put_line(c_id || ' ' || c_name || ' ' || c_addr);
+ END LOOP;
+ CLOSE c_customer;
+END;
+/
