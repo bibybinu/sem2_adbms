@@ -1,23 +1,103 @@
-///Question 1
+///Option A
 
-> db.empl.find({"name":/^S/i}).pretty()
+> use employee
+switched to db employee
+> db.createCollection("empl")
+{ "ok" : 1 }
 
-///Question 2
+///Option B
 
->  db.empl.find({"name":/n$/i}).pretty()
+> db.empl.insert({empno:132,name:"Saran",salary:32000,role:"Manager"})
+WriteResult({ "nInserted" : 1 })
+> db.empl.insert({empno:134,name:"Kishore",salary:22000,role:"Sales head"})
+WriteResult({ "nInserted" : 1 })
+> db.empl.insert({empno:138,name:"Nelson",salary:15000,role:"Accountant"})
+WriteResult({ "nInserted" : 1 })
+> db.empl.insert({empno:139,name:"Karun",salary:75000,role:"Analyst"})
+WriteResult({ "nInserted" : 1 })
+> db.empl.insert({empno:155,name:"Dev",salary:45000,role:"Assistant Manager"})
+WriteResult({ "nInserted" : 1 })
+> db.empl.insert({empno:165,name:"Ben",salary:58000,role:"Legal Advisor"})
+WriteResult({ "nInserted" : 1 })
+> db.empl.insert({empno:168,name:"Jo",salary:25600,role:"Assistant Head"})
+WriteResult({ "nInserted" : 1 })
+> db.empl.insert({empno:168,name:"Max",salary:46200,role:"Marketing head"})
+WriteResult({ "nInserted" : 1 })
+> db.empl.insert({empno:180,name:"Mob",salary:46200,role:"Finance head"})
+WriteResult({ "nInserted" : 1 })
+> db.empl.insert({empno:185,name:"Dominic",salary:72200,role:"Advertisements"})
+WriteResult({ "nInserted" : 1 })
 
-///Question 3
+///Option C
 
-> db.empl.find({"name":/s/i}).pretty()
-
-///Question 4
-
-> db.empl.update({name:"Ben"},{$inc:{salary:8000}})
-
-///Question 5
-
->  db.empl.updateMany({},{$inc:{salary:4000}})
-
-///Question 6
-
->db.empl.updateMany({},{$set:{"RS":"WC"}})
+> db.empl.find().pretty()
+{
+        "_id" : ObjectId("628339b59604d16fb1bd8ff8"),
+        "empno" : 132,
+        "name" : "Saran",
+        "salary" : 32000,
+        "role" : "Manager"
+}
+{
+        "_id" : ObjectId("628339ce9604d16fb1bd8ff9"),
+        "empno" : 134,
+        "name" : "Kishore",
+        "salary" : 22000,
+        "role" : "Sales head"
+}
+{
+        "_id" : ObjectId("628339ed9604d16fb1bd8ffa"),
+        "empno" : 138,
+        "name" : "Nelson",
+        "salary" : 15000,
+        "role" : "Accountant"
+}
+{
+        "_id" : ObjectId("62833a159604d16fb1bd8ffb"),
+        "empno" : 139,
+        "name" : "Karun",
+        "salary" : 75000,
+        "role" : "Analyst"
+}
+{
+        "_id" : ObjectId("62833a309604d16fb1bd8ffc"),
+        "empno" : 155,
+        "name" : "Dev",
+        "salary" : 45000,
+        "role" : "Assistant Manager"
+}
+{
+        "_id" : ObjectId("62833a579604d16fb1bd8ffd"),
+        "empno" : 165,
+        "name" : "Ben",
+        "salary" : 58000,
+        "role" : "Legal Advisor"
+}
+{
+        "_id" : ObjectId("62833a909604d16fb1bd8ffe"),
+        "empno" : 168,
+        "name" : "Jo",
+        "salary" : 25600,
+        "role" : "Assistant Head"
+}
+{
+        "_id" : ObjectId("62833ab29604d16fb1bd8fff"),
+        "empno" : 168,
+        "name" : "Max",
+        "salary" : 46200,
+        "role" : "Marketing head"
+}
+{
+        "_id" : ObjectId("62833aca9604d16fb1bd9000"),
+        "empno" : 180,
+        "name" : "Mob",
+        "salary" : 46200,
+        "role" : "Finance head"
+}
+{
+        "_id" : ObjectId("62833b1a9604d16fb1bd9001"),
+        "empno" : 185,
+        "name" : "Dominic",
+        "salary" : 72200,
+        "role" : "Advertisements"
+}
