@@ -1,103 +1,38 @@
-///Option A
+SQL>
+SQL> DECLARE
+  2   total_rows number(2);
+  3  BEGIN
+  4   UPDATE customer
+  5   SET salary = salary + 5000;
+  6   IF sql%notfound THEN
+  7   dbms_output.put_line('no customers updated');
+  8   ELSIF sql%found THEN
+  9   total_rows := sql%rowcount;
+ 10   dbms_output.put_line( total_rows || ' customers updated ');
+ 11   END IF;
+ 12  END;
+ 13  /
+ 
+ 
+ 
+Old salary: 25000
+New salary: 30000
+Salary difference: 5000
+Old salary: 27000
+New salary: 32000
+Salary difference: 5000
+Old salary: 29000
+New salary: 34000
+Salary difference: 5000
+Old salary: 33000
+New salary: 38000
+Salary difference: 5000
+Old salary: 31000
+New salary: 36000
+Salary difference: 5000
+Old salary: 35000
+New salary: 40000
+Salary difference: 5000
+6 customers updated
 
-> use employee
-switched to db employee
-> db.createCollection("empl")
-{ "ok" : 1 }
-
-///Option B
-
-> db.empl.insert({empno:132,name:"Saran",salary:32000,role:"Manager"})
-WriteResult({ "nInserted" : 1 })
-> db.empl.insert({empno:134,name:"Kishore",salary:22000,role:"Sales head"})
-WriteResult({ "nInserted" : 1 })
-> db.empl.insert({empno:138,name:"Nelson",salary:15000,role:"Accountant"})
-WriteResult({ "nInserted" : 1 })
-> db.empl.insert({empno:139,name:"Karun",salary:75000,role:"Analyst"})
-WriteResult({ "nInserted" : 1 })
-> db.empl.insert({empno:155,name:"Dev",salary:45000,role:"Assistant Manager"})
-WriteResult({ "nInserted" : 1 })
-> db.empl.insert({empno:165,name:"Ben",salary:58000,role:"Legal Advisor"})
-WriteResult({ "nInserted" : 1 })
-> db.empl.insert({empno:168,name:"Jo",salary:25600,role:"Assistant Head"})
-WriteResult({ "nInserted" : 1 })
-> db.empl.insert({empno:168,name:"Max",salary:46200,role:"Marketing head"})
-WriteResult({ "nInserted" : 1 })
-> db.empl.insert({empno:180,name:"Mob",salary:46200,role:"Finance head"})
-WriteResult({ "nInserted" : 1 })
-> db.empl.insert({empno:185,name:"Dominic",salary:72200,role:"Advertisements"})
-WriteResult({ "nInserted" : 1 })
-
-///Option C
-
-> db.empl.find().pretty()
-{
-        "_id" : ObjectId("628339b59604d16fb1bd8ff8"),
-        "empno" : 132,
-        "name" : "Saran",
-        "salary" : 32000,
-        "role" : "Manager"
-}
-{
-        "_id" : ObjectId("628339ce9604d16fb1bd8ff9"),
-        "empno" : 134,
-        "name" : "Kishore",
-        "salary" : 22000,
-        "role" : "Sales head"
-}
-{
-        "_id" : ObjectId("628339ed9604d16fb1bd8ffa"),
-        "empno" : 138,
-        "name" : "Nelson",
-        "salary" : 15000,
-        "role" : "Accountant"
-}
-{
-        "_id" : ObjectId("62833a159604d16fb1bd8ffb"),
-        "empno" : 139,
-        "name" : "Karun",
-        "salary" : 75000,
-        "role" : "Analyst"
-}
-{
-        "_id" : ObjectId("62833a309604d16fb1bd8ffc"),
-        "empno" : 155,
-        "name" : "Dev",
-        "salary" : 45000,
-        "role" : "Assistant Manager"
-}
-{
-        "_id" : ObjectId("62833a579604d16fb1bd8ffd"),
-        "empno" : 165,
-        "name" : "Ben",
-        "salary" : 58000,
-        "role" : "Legal Advisor"
-}
-{
-        "_id" : ObjectId("62833a909604d16fb1bd8ffe"),
-        "empno" : 168,
-        "name" : "Jo",
-        "salary" : 25600,
-        "role" : "Assistant Head"
-}
-{
-        "_id" : ObjectId("62833ab29604d16fb1bd8fff"),
-        "empno" : 168,
-        "name" : "Max",
-        "salary" : 46200,
-        "role" : "Marketing head"
-}
-{
-        "_id" : ObjectId("62833aca9604d16fb1bd9000"),
-        "empno" : 180,
-        "name" : "Mob",
-        "salary" : 46200,
-        "role" : "Finance head"
-}
-{
-        "_id" : ObjectId("62833b1a9604d16fb1bd9001"),
-        "empno" : 185,
-        "name" : "Dominic",
-        "salary" : 72200,
-        "role" : "Advertisements"
-}
+PL/SQL procedure successfully completed.
